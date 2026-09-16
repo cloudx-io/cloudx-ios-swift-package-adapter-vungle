@@ -20,14 +20,14 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/Vungle/VungleAdsSDK-SwiftPackageManager.git",
-            exact: "7.7.4"
+            exact: "7.7.6"
         ),
     ],
     targets: [
         .binaryTarget(
             name: "CloudXVungleAdapter",
-            url: "https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-vungle/7.7.4.0/CloudXVungleAdapter.xcframework.zip",
-            checksum: "6111affbc60756c0311afd4b0eb6259be4dfd45c7bc57012dedb7c89de861d30"
+            url: "https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-vungle/7.7.6.0/CloudXVungleAdapter.xcframework.zip",
+            checksum: "ece9a346fcd254bf377028b52ca5003273dca07702e858eb5a6976b5c31d14ac"
         ),
         .target(
             name: "CloudXVungleAdapterPackage",
