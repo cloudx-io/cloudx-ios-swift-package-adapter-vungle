@@ -1,0 +1,43 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select Xcode 16
+        run: sudo xcode-select --switch /Applications/Xcode_16.4.app
+      - name: Validate manifest
+        run: swift package dump-package
+      - name: Resolve dependencies
+        run: swift package resolve
+      - name: Build and test iOS consumers
+        run: |
+          destination=$(xcrun simctl list devices available --json | \
+            jq -r '[.devices | to_entries[] | select(.key | startswith("com.apple.CoreSimulator.SimRuntime.iOS-")) | .value[] | select(.isAvailable)][0].udid // empty')
+          if [[ -n "$destination" ]]; then
+            xcodebuild test \
+              -scheme CloudXVungleAdapter \
+              -destination "id=$destination" \
+              CODE_SIGNING_ALLOWED=NO
+          else
+            xcodebuild build-for-testing \
+              -scheme CloudXVungleAdapter \
+              -destination 'generic/platform=iOS Simulator' \
+              CODE_SIGNING_ALLOWED=NO
+          fi
+      - name: Verify artifact checksum
+        run: |
+          curl --fail --location --output /tmp/CloudXVungleAdapter.xcframework.zip \
+            https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-vungle/7.7.4.0/CloudXVungleAdapter.xcframework.zip
+          test "$(swift package compute-checksum /tmp/CloudXVungleAdapter.xcframework.zip)" = \
+            "6111affbc60756c0311afd4b0eb6259be4dfd45c7bc57012dedb7c89de861d30"
