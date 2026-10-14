@@ -8,7 +8,7 @@
 @implementation CloudXVungleAdapterObjCTests
 
 - (void)testAdapterIsLinkedAndRegistered {
-    XCTAssertEqualObjects(CLXVungleAdapterVersion, @"7.7.6.0");
+    XCTAssertEqualObjects(CLXVungleAdapterVersion, @"7.7.6.1");
     XCTAssertNotNil(NSClassFromString(@"CLXVungleInitializer"));
 }
 
