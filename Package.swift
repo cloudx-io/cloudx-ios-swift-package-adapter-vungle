@@ -26,8 +26,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "CloudXVungleAdapter",
-            url: "https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-vungle/7.7.6.0/CloudXVungleAdapter.xcframework.zip",
-            checksum: "ece9a346fcd254bf377028b52ca5003273dca07702e858eb5a6976b5c31d14ac"
+            url: "https://github.com/cloudx-io/cloudx-ios-swift-package-adapter-vungle/releases/download/binary/7070601.0.0/CloudXVungleAdapter.xcframework.zip",
+            checksum: "812dea7fc21f7beaa901c2140849095b82fbc93c70c3fdef78082fe807ab8d20"
         ),
         .target(
             name: "CloudXVungleAdapterPackage",
