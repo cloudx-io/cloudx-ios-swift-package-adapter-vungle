@@ -24,6 +24,7 @@ flag to retain the adapter registration code.
 
 | Package version | CloudX adapter | Vungle Ads SDK |
 | --- | --- | --- |
+| `7070800.0.0` | `7.7.8.0` | `7.7.8` |
 | `7070601.0.0` | `7.7.6.1` | `7.7.6` |
 | `7070600.0.0` | `7.7.6.0` | `7.7.6` |
 | `7070400.0.0` | `7.7.4.0` | `7.7.4` |
