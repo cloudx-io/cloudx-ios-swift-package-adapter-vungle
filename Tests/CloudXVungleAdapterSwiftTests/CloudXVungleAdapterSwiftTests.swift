@@ -4,7 +4,7 @@ import XCTest
 
 final class CloudXVungleAdapterSwiftTests: XCTestCase {
     func testAdapterIsLinkedAndRegistered() {
-        XCTAssertEqual(CLXVungleAdapterVersion, "7.7.6.1")
+        XCTAssertEqual(CLXVungleAdapterVersion, "7.7.8.0")
         XCTAssertNotNil(NSClassFromString("CLXVungleInitializer"))
     }
 }
